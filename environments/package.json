@@ -1,0 +1,26 @@
+{
+  "name": "environments",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "typeorm-build-config": "rm -rf ./dist && tsc --project ./tsconfig.json",
+    "dev:cp": "cp ./envs/development.env ./dist/.env",
+    "prd:cp": "cp ./envs/production.env ./dist/.env",
+    "dev:run": "npm run typeorm-build-config && npm run dev:cp && NODE_ENV=development typeorm -d dist/data-source.js migration:run",
+    "prd:run": "npm run typeorm-build-config && npm run prd:cp && NODE_ENV=production typeorm -d dist/data-source.js migration:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@nestjs/typeorm": "^11.0.0",
+    "dotenv": "^16.4.7",
+    "pg": "^8.13.1",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "typescript": "^5.7.3"
+  }
+}
