@@ -15,11 +15,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
         this.loggerService.error(`[${request.method}] ${request.url} > ${status}`);
         this.loggerService.error(exception.stack || 'No stack trace available');
-        this.loggerService.debug(`Body: ${JSON.stringify(request.body)}`);
-        this.loggerService.debug(`Params: ${JSON.stringify(request.params)}`);
-        this.loggerService.debug(`Query: ${JSON.stringify(request.query)}`);
-        this.loggerService.debug(`Headers: ${JSON.stringify(request.headers)}`);
-        this.loggerService.debug(`---------------------------------------------------`);
+        // this.loggerService.debug(`Body: ${JSON.stringify(request.body)}`);
+        // this.loggerService.debug(`Params: ${JSON.stringify(request.params)}`);
+        // this.loggerService.debug(`Query: ${JSON.stringify(request.query)}`);
+        // this.loggerService.debug(`Headers: ${JSON.stringify(request.headers)}`);
+        // this.loggerService.debug(`---------------------------------------------------`);
 
         let message = '';
         let exceptionBody: any;

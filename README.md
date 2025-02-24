@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./icon.png" alt="Logo" width="300">
+  <img src="./imgs/icon.png" alt="Logo" width="300">
 </p>
 
 <p align="center">
@@ -48,7 +48,11 @@ To install, follow the steps below:
     ```bash
       npm install
     ```
-6. If this is your first time running the project, access the `/enviroments` folder and run the following command to create database tables and execute scripts
+6. If this is your first time running the project, run the following command to create database
+    ```bash
+      npm run db
+    ```
+7. If this is your first time running the project, access the `/enviroments` folder and run the following command to create database tables and execute scripts
     ```bash
       npm run dev:run
     ```
@@ -57,10 +61,23 @@ To install, follow the steps below:
 - After completing the steps above, navigate to the `/services` folder and run the following command to start the project
 
     ```bash
-      npm run dev:debug
+      npm run debug:dev
     ```
 
 - The API will be available at `http://localhost:3333`. . You can access the API documentation at `http://localhost:3333/api`.
 
 ## About Migrations
 Migrations are files containing changes to be made to the database. For more information, refer to the [Migrations Readme](./environments/README.md).
+
+## Acessing SGDB (Adminer)  
+
+Adminer is a database management tool that allows you to manage your database through a web interface. To access it, access the URL `http://localhost:8080` and use the following credentials:
+  - System: PostgreSQL
+  - Server: db
+  - Username: postgres
+  - Password: MyPass
+  - Database: postgres
+
+<p align="center">
+  <img src="./imgs/adminer_login.png" alt="adminer" width="300">
+</p>

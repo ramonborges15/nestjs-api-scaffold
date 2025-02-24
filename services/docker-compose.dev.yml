@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres
+    container_name: db
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    env_file:
+      - ./envs/development.env
+    ports:
+      - "5433:5432" # Host:Container (5433 externo → 5432 interno)
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080 # external:internal
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+
+
+networks:
+  app-network:
+    driver: bridge

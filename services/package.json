@@ -6,9 +6,11 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "debug:dev": "npx -- @nestjs/cli start --env-file dist/development.env --debug --watch",
-    "start:dev": "npx -- @nestjs/cli start --env-file dist/development.env --watch",
-    "start:prod": "node dist/main"
+    "build": "npx -- @nestjs/cli build",
+    "db": "docker-compose -f docker-compose.dev.yml up",
+    "debug:dev": "npm run build && npx -- @nestjs/cli start --env-file dist/development.env --debug --watch",
+    "start:dev": "npm run build && npx -- @nestjs/cli start --env-file dist/development.env --watch",
+    "start:prod": "npm run build && node dist/main"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^2.0.2",

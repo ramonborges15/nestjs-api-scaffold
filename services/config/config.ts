@@ -14,9 +14,9 @@ export default () => ({
     JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || 21600,
 
     DB_TYPE: process.env.DB_TYPE,
-    DB_HOST: process.env.DB_HOST,
-    DB_PORT: process.env.DB_PORT,
-    DB_USERNAME: process.env.DB_USERNAME,
-    DB_PASSWORD: process.env.DB_PASSWORD,
-    DB_DATABASE: process.env.DB_DATABASE,
+    DB_HOST: process.env.POSTGRES_HOST,
+    DB_PORT: process.env.POSTGRES_PORT,
+    DB_USERNAME: process.env.POSTGRES_USER,
+    DB_PASSWORD: process.env.POSTGRES_PASSWORD,
+    DB_DATABASE: process.env.POSTGRES_DB,
 });

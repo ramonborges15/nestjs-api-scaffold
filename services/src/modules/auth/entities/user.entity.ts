@@ -1,6 +1,5 @@
 import { randomUUID } from "crypto";
-import { UserHasDatabasesConfigs } from "src/modules/user/entities/user_has_databases_configs.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Role } from "./role.entity";
 
 @Entity('users')
@@ -33,9 +32,6 @@ export class User {
     @ManyToOne(() => Role)
     @JoinColumn({ name: 'role_id' })
     public role: Role;
-
-    @OneToMany(() => UserHasDatabasesConfigs, (userHasDatabasesConfigs) => userHasDatabasesConfigs.user)
-    public userHasDatabasesConfigs: UserHasDatabasesConfigs[];
 
     public toHashPassword(passwordHashed: string) {
         this.password = passwordHashed;
