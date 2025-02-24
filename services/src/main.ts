@@ -57,9 +57,8 @@ async function bootstrap() {
     .addBearerAuth()
     .setTitle('NestJS Backend Auth API')
     .setDescription('Esta é a documentação da API de autenticação Backend.')
-    .setVersion('1.0')
+    .setVersion('1.0.0')
     .addTag("Autenticação", "Listagem dos endpoints relacionados a autenticação")
-    .addTag('Configurações de banco de dados', 'Listagem dos endpoints relacionados a configurações de banco de dados')
     .addTag("Usuários", "Listagem dos endpoints relacionados a usuários")
     .build()
 
@@ -69,3 +68,6 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 3335);
 }
 bootstrap();
+
+
+// Remove endpoint that is not used.
